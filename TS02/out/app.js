@@ -1,9 +1,9 @@
 "use strict";
-//! Intersection 
+//! Intersection
 const Employee1 = {
     name: "Ali",
     age: 30,
-    privilages: ["Data Enter"]
+    privilages: ["Data Enter"],
 };
 /* -------------------------------------------------------------------------- */
 //! Type Assertion
@@ -21,7 +21,7 @@ str = false;
 // Void fonksiyon geriye bir değer döndermez
 function toplam(a, b) {
     console.log(b);
-    console.log((a + b));
+    console.log(a + b);
     return;
 }
 toplam(34, 67);
@@ -48,7 +48,49 @@ console.log(birlestir("Aslı", "Demir"));
 console.log(birlestir(3543, 676));
 console.log(birlestir(true, false));
 console.log(birlestir([3, 5, 6], [34543, 56]));
-function sum(...values) {
-    return values.reduce((acc, val) => acc + val, 0);
+// 6.Rest Parametresi
+//Rest parametresi(...)
+function topla(...degerler) {
+    return degerler.reduce((acc, sayi) => acc + sayi, 0);
 }
-console.log(sum(89, 0, 9, 1, 10, 1, 23));
+console.log(topla(56, 34, 23, 64, 56));
+// 7.Anonim fonksiyonlar
+const carpma = function (x, y) {
+    return x * y;
+};
+console.log(carpma(43, 76));
+/* -------------------------------------------------------------------------- */
+//! CLASSES
+class Student {
+    //Constructor
+    constructor(code, ad) {
+        this.studentNumber = code;
+        this.studentName = ad;
+    }
+    // Method - Yani fonksiyonlar
+    getFullName() {
+        console.log(`Fullname: ${this.studentNumber} - ${this.studentName}`);
+    }
+}
+const student1 = new Student(134523, "Ali");
+console.log(student1);
+const student2 = new Student(67675, "Ömer");
+console.log(student2);
+student1.getFullName();
+/* -------------------------------------------------------------------------- */
+//! Classes Inheritance
+class Person {
+    constructor(name, lastname) {
+        this.name = name;
+        this.lastname = lastname;
+    }
+}
+//Inhertiance - Person yapısından Extend ile miras alıyoruz
+class Adm extends Person {
+    constructor(adminCode, name, lastname) {
+        super(name, lastname);
+        this.AdminCode = adminCode;
+    }
+}
+const admin1 = new Adm(345, "Ali", "Veli");
+console.log(admin1);
