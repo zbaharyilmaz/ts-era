@@ -81,3 +81,7 @@ console.log(birlestir(true,false))
 console.log(birlestir([3,5,6],[34543,56]))
 
 
+function sum(...values:number[]):number{
+    return values.reduce((acc, val)=>acc+val, 0)
+}
+console.log(sum(89,0,9,1,10,1,23));
